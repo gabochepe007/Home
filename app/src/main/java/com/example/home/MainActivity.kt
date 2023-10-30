@@ -44,6 +44,12 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        binding.imageButton6.setOnClickListener {
+            GlobalScope.launch {
+                gitAuth()
+            }
+        }
+
     }
 
     private suspend fun oAuth(){
@@ -55,7 +61,21 @@ class MainActivity : AppCompatActivity() {
 
         account.createOAuth2Session(this@MainActivity, "facebook")
 
-        Toast.makeText(this, "Iniciando sesión con proveedor", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Iniciando sesión con proveedor Facebook", Toast.LENGTH_SHORT).show()
+
+    }
+
+    private suspend fun gitAuth(){
+        val client = Client(this)
+            .setEndpoint("https://cloud.appwrite.io/v1") // Your API Endpoint
+            .setProject("653f4194eb21a8667a2e") // Your project ID
+
+        val account = Account(client)
+
+        account.createOAuth2Session(this@MainActivity, "github")
+
+        Toast.makeText(this, "Iniciando sesión con proveedor Github", Toast.LENGTH_SHORT).show()
+
 
     }
 }
