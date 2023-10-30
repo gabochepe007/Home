@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Home"
         tools:targetApi="31">
         <activity
+            android:name=".PhoneRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,12 +27,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="io.appwrite.views.CallbackActivity" android:exported="true">
+        <activity
+            android:name="io.appwrite.views.CallbackActivity"
+            android:exported="true">
             <intent-filter android:label="android_web_auth">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="appwrite-callback-[65259b041b3f554226e3]" />
+
+                <data android:scheme="appwrite-callback-[653f4194eb21a8667a2e]" />
             </intent-filter>
         </activity>
     </application>
